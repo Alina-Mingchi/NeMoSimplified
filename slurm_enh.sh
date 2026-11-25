@@ -5,6 +5,7 @@
 #SBATCH --cpus-per-task 8
 #SBATCH --partition gpu
 #SBATCH --gpus 1
+#SBATCH --account pause
 
 
 #SBATCH --job-name=enh
@@ -17,6 +18,7 @@ MODEL_PATH=$wsj0_model_pred
 DATASET='wsj0_enh_chime'
 
 
+eval "$(/idiap/temp/mhou/miniconda3/bin/conda shell.bash hook)"
 conda activate nemo
 
 echo 'Enhance SE with Nemo for' $DATASET

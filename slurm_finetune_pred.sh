@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task 8
 #SBATCH --partition gpu
 #SBATCH --gpus h100
-
+#SBATCH --account pause
 
 #SBATCH --job-name=train
 #SBATCH --output=/code/slurm_logs/nemo-train-%j.out
@@ -19,6 +19,7 @@ CONFIG_NAME='predictive'
 DATASET='wsj0_enh_chime'
 
 
+eval "$(/idiap/temp/mhou/miniconda3/bin/conda shell.bash hook)"
 conda activate nemo
 
 echo 'Train SE with Nemo for' $DATASET
